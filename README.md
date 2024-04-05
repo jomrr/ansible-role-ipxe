@@ -1,6 +1,6 @@
 # ansible-role-ipxe
 
-![GitHub](https://img.shields.io/github/license/jam82/ansible-role-ipxe) ![GitHub last commit](https://img.shields.io/github/last-commit/jam82/ansible-role-ipxe) ![GitHub issues](https://img.shields.io/github/issues-raw/jam82/ansible-role-ipxe) ![Travis (.com) branch](https://img.shields.io/travis/com/jam82/ansible-role-ipxe/main?label=travis) [![Molecule](https://github.com/jam82/ansible-role-ipxe/actions/workflows/molecule.yml/badge.svg)](https://github.com/jam82/ansible-role-ipxe/actions/workflows/molecule.yml)
+![GitHub](https://img.shields.io/github/license/jomrr/ansible-role-ipxe) ![GitHub last commit](https://img.shields.io/github/last-commit/jomrr/ansible-role-ipxe) ![GitHub issues](https://img.shields.io/github/issues-raw/jomrr/ansible-role-ipxe) ![Travis (.com) branch](https://img.shields.io/travis/com/jomrr/ansible-role-ipxe/main?label=travis) [![Molecule](https://github.com/jomrr/ansible-role-ipxe/actions/workflows/molecule.yml/badge.svg)](https://github.com/jomrr/ansible-role-ipxe/actions/workflows/molecule.yml)
 
 **Ansible role for installing iPXE and setting up TFTP Root.**
 
@@ -58,11 +58,11 @@ None.
 
 ## License and Author
 
-- Author:: [jam82](https://github.com/jam82/)
-- Copyright:: 2021, [jam82](https://github.com/jam82/)
+- Author:: [jomrr](https://github.com/jomrr/)
+- Copyright:: 2021, [jomrr](https://github.com/jomrr/)
 
 Licensed under [MIT License](https://opensource.org/licenses/MIT).
-See [LICENSE](https://github.com/jam82/ansible-role-ipxe/blob/master/LICENSE) file in repository.
+See [LICENSE](https://github.com/jomrr/ansible-role-ipxe/blob/master/LICENSE) file in repository.
 
 ## References
 

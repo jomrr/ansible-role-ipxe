@@ -1,0 +1,66 @@
+---
+# role: ansible-role-ipxe
+# file: molecule/kvm/molecule.yml
+
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+driver:
+  name: vagrant
+  provider:
+    name: libvirt
+    type: libvirt
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+  flake8
+platforms:
+  - name: arch-ipxe
+    box: "archlinux/archlinux"
+    memory: 2048
+    cpus: 2
+  - name: centos-ipxe
+    box: "centos/8"
+    memory: 2048
+    cpus: 2
+  - name: debian-ipxe
+    box: "debian/bullseye64"
+    memory: 2048
+    cpus: 2
+  - name: fedora-ipxe
+    box: "fedora/33-cloud-base"
+    memory: 2048
+    cpus: 2
+  - name: opensuse-ipxe
+    box: "generic/opensuse15"
+    memory: 2048
+    cpus: 2
+  - name: oracle-ipxe
+    box: "generic/oracle8"
+    memory: 2048
+    cpus: 2
+  - name: ubuntu-ipxe
+    box: "generic/ubuntu2004"
+    memory: 2048
+    cpus: 2
+provisioner:
+  name: ansible
+  log: true
+  playbooks:
+    prepare: ../resources/playbooks/prepare.yml
+    converge: ../resources/playbooks/converge.yml
+    verify: ../resources/playbooks/verify.yml
+  inventory:
+    group_vars:
+      all:
+        ipxe_role_enabled: true
+verifier:
+  name: testinfra
+  env:
+    PYTHONWARNINGS: "ignore"
+  directory: ../resources/tests
+  options:
+    v: true
+    sudo: true

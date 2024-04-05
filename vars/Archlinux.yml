@@ -1,0 +1,5 @@
+---
+# role: ansible-role-ipxe
+# file: vars/Archlinux.yml
+
+ipxe_packages: []

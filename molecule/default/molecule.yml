@@ -1,0 +1,100 @@
+---
+# role: ansible-role-ipxe
+# file: molecule/default/molecule.yml
+
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: alpine-ipxe
+    image: "jomrr/molecule-alpine:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: arch-ipxe
+    image: "jomrr/molecule-archlinux:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: centos-ipxe
+    image: "jomrr/molecule-centos:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: debian-ipxe
+    image: "jomrr/molecule-debian:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: fedora-ipxe
+    image: "jomrr/molecule-fedora:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: opensuse-ipxe
+    image: "jomrr/molecule-opensuse:15"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: tumbleweed-ipxe
+    image: "jomrr/molecule-opensuse:tumbleweed"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: oracle-ipxe
+    image: "jomrr/molecule-oraclelinux:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+  - name: ubuntu-ipxe
+    image: "jomrr/molecule-ubuntu:latest"
+    command: ""
+    pre_build_image: true
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+provisioner:
+  name: ansible
+  log: true
+  playbooks:
+    prepare: ../resources/playbooks/prepare.yml
+    converge: ../resources/playbooks/converge.yml
+    verify: ../resources/playbooks/verify.yml
+  inventory:
+    group_vars:
+      all:
+        ipxe_role_enabled: true
+verifier:
+  name: ansible

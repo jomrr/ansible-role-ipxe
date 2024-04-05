@@ -1,0 +1,47 @@
+---
+# role: ansible-role-ipxe
+# file: meta/main.yml
+
+galaxy_info:
+  role_name: ipxe
+  author: jomrr
+  description: Ansible role for installing iPXE and setting up TFTP Root.
+  company: ''
+
+  issue_tracker_url: https://github.com/jomrr/ansible-role-ipxe/issues
+
+  license: MIT
+
+  min_ansible_version: "2.9"
+
+  platforms:
+    - name: Alpine
+      versions:
+        - any
+    - name: ArchLinux
+      versions:
+        - any
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+    - name: Fedora
+      versions:
+        - any
+    - name: opensuse
+      versions:
+        - "15.0"
+        - "15.1"
+        - "15.2"
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+
+  galaxy_tags: []
+
+dependencies: []

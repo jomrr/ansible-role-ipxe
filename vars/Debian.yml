@@ -1,0 +1,5 @@
+---
+# role: ansible-role-ipxe
+# file: vars/Debian.yml
+
+ipxe_packages: []

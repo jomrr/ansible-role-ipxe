@@ -1,0 +1,5 @@
+---
+# role: ansible-role-ipxe
+# file: vars/Suse.yml
+
+ipxe_packages: []
