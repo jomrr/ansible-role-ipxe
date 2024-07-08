@@ -1,5 +1,5 @@
 ---
-# role: ansible-role-ipxe
+# role: jomrr.ipxe
 # file: defaults/main.yml
 
 # The role is disabled by default, so you do not get in trouble.

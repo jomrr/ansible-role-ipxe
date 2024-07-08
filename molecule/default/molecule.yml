@@ -1,100 +1,33 @@
 ---
-# role: ansible-role-ipxe
+# name: jomrr.ansible-role-ipxe
 # file: molecule/default/molecule.yml
 
+scenario:
+  name: default
 dependency:
   name: galaxy
-  options:
-    requirements-file: requirements.yml
+  requirements-file: meta/requirements.yml
 driver:
-  name: docker
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
-platforms:
-  - name: alpine-ipxe
-    image: "jomrr/molecule-alpine:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: arch-ipxe
-    image: "jomrr/molecule-archlinux:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: centos-ipxe
-    image: "jomrr/molecule-centos:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: debian-ipxe
-    image: "jomrr/molecule-debian:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: fedora-ipxe
-    image: "jomrr/molecule-fedora:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: opensuse-ipxe
-    image: "jomrr/molecule-opensuse:15"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: tumbleweed-ipxe
-    image: "jomrr/molecule-opensuse:tumbleweed"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: oracle-ipxe
-    image: "jomrr/molecule-oraclelinux:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
-  - name: ubuntu-ipxe
-    image: "jomrr/molecule-ubuntu:latest"
-    command: ""
-    pre_build_image: true
-    privileged: true
-    tmpfs:
-      - /tmp
-      - /run
+  name: podman
+lint: set -e; ansible-lint
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      interpreter_python: auto_silent
+      callback_whitelist: profile_tasks, timer, yaml
+    ssh_connection:
+      pipelining: true
   log: true
   playbooks:
-    prepare: ../resources/playbooks/prepare.yml
     converge: ../resources/playbooks/converge.yml
     verify: ../resources/playbooks/verify.yml
-  inventory:
-    group_vars:
-      all:
-        ipxe_role_enabled: true
 verifier:
   name: ansible
+platforms:
+  - name: ipxe
+    image: docker.io/${uns:-jomrr}/molecule-${img:-fedora}:${tag:-latest}
+    pre_build_image: true
+    entrypoint: null
+    command: null
+    systemd: true

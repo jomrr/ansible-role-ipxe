@@ -1,13 +1,13 @@
 ---
-# role: ansible-role-ipxe
+# role: jomrr.ipxe
 # file: tasks/tasks.yml
 
 
 - name: "Set os_family dependent variables"
-  include_vars: '{{ ansible_os_family }}.yml'
+  ansible.builtin.include_vars: '{{ ansible_os_family }}.yml'
 
 - name: "Set distribution dependent variables"
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   vars:
     params:
       files:
@@ -20,6 +20,6 @@
   loop: "{{ query('first_found', params, errors='ignore') }}"
 
 - name: "Install packages for ipxe"
-  package:
+  ansible.builtin.package:
     name: "{{ ipxe_packages }}"
     state: present

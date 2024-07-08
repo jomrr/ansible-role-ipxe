@@ -1,7 +1,3 @@
 ---
-# role: ansible-role-ipxe
+# role: jomrr.ipxe
 # file: tasks/main.yml
-
-- name: "Check if ansible-role-ipxe is enabled"
-  include_tasks: tasks.yml
-  when: ipxe_role_enabled | bool

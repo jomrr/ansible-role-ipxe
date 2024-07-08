@@ -1,7 +1,7 @@
 [project]
 name = "ansible-role-ipxe"
 version = "0.0.0"
-description = "Ansible role for setting up ipxe."
+description = "Ansible role for compiling ipxe."
 authors = ["Jonas Mauer"]
 license = "MIT"
 keywords = []

@@ -1,12 +1,10 @@
----
-# role: ansible-role-ipxe
+# role: jomrr.ipxe
 # file: molecule/resources/playbooks/converge.yml
+# code: language=ansible-jinja
 
-- name: Converge
+- name: "PLAYBOOK | Converge | ipxe"
   hosts: all
   become: true
-  vars:
-    baseline_role_enabled: false
-    ipxe_role_enabled: true
+  gather_facts: true
   roles:
-    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') }}"
+    - role: "{{ lookup('ansible.builtin.env', 'MOLECULE_PROJECT_DIRECTORY') }}"
