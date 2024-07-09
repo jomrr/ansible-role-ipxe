@@ -1,5 +1,0 @@
----
-# name: jomrr.ipxe
-# file: meta/requirements.yml
-
-- name: community.general
